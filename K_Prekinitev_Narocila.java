@@ -10,13 +10,13 @@ import java.util.Date;
 /** @pdOid ce3883e5-d7ca-4666-af6e-fe0179636066 */
 public class K_Prekinitev_Narocila {
    /** @pdRoleInfo migr=no name=SV_Prekinitev_Narocila_Bancni_Sistem assc=Association_5 coll=java.util.Collection impl=java.util.HashSet mult=0..1 */
-   public SV_Prekinitev_Narocila_Bancni_Sistem sV_Prekinitev_Narocila_Bancni_Sistem;
+   public SV_Prekinitev_Narocila_Bancni_Sistem_SIM sV_Prekinitev_Narocila_Bancni_Sistem;
    /** @pdRoleInfo migr=no name=Narocilo assc=Association_6 coll=java.util.Collection impl=java.util.HashSet mult=0..* */
    public ArrayList<Narocilo> narocila;
    /** @pdRoleInfo migr=no name=Uporabnik assc=Association_7 coll=java.util.Collection impl=java.util.HashSet mult=1..1 */
    public Uporabnik uporabnik;
    /** @pdRoleInfo migr=no name=K_Posodobitev_Zaloge assc=Association_8 coll=java.util.Collection impl=java.util.HashSet mult=1..1 */
-   public K_Posodobitev_Zaloge k_Posodobitev_Zaloge;
+   public K_Posodobitev_Zaloge_SIM k_Posodobitev_Zaloge;
    /** @pdRoleInfo migr=no name=ZM_Uporabnik_Prekinitev_Narocila assc=Association_4 coll=java.util.Collection impl=java.util.HashSet mult=1..1 side=A */
    public ZM_Uporabnik_Prekinitev_Narocila zM_Uporabnik_Prekinitev_Narocila;
 
@@ -91,13 +91,13 @@ public class K_Prekinitev_Narocila {
    
    
    /** @pdGenerated default parent getter */
-   public SV_Prekinitev_Narocila_Bancni_Sistem getSV_Prekinitev_Narocila_Bancni_Sistem() {
+   public SV_Prekinitev_Narocila_Bancni_Sistem_SIM getSV_Prekinitev_Narocila_Bancni_Sistem() {
       return sV_Prekinitev_Narocila_Bancni_Sistem;
    }
    
    /** @pdGenerated default parent setter
-     * @param newSV_Prekinitev_Narocila_Bancni_Sistem */
-   public void setSV_Prekinitev_Narocila_Bancni_Sistem(SV_Prekinitev_Narocila_Bancni_Sistem newSV_Prekinitev_Narocila_Bancni_Sistem) {
+     * @param newSV_Prekinitev_Narocila_Bancni_Sistem_SIM */
+   public void setSV_Prekinitev_Narocila_Bancni_Sistem(SV_Prekinitev_Narocila_Bancni_Sistem_SIM newSV_Prekinitev_Narocila_Bancni_Sistem) {
       this.sV_Prekinitev_Narocila_Bancni_Sistem = newSV_Prekinitev_Narocila_Bancni_Sistem;
    }
    /** @pdGenerated default getter */
@@ -159,13 +159,13 @@ public class K_Prekinitev_Narocila {
       this.uporabnik = newUporabnik;
    }
    /** @pdGenerated default parent getter */
-   public K_Posodobitev_Zaloge getK_Posodobitev_Zaloge() {
+   public K_Posodobitev_Zaloge_SIM getK_Posodobitev_Zaloge() {
       return k_Posodobitev_Zaloge;
    }
    
    /** @pdGenerated default parent setter
-     * @param newK_Posodobitev_Zaloge */
-   public void setK_Posodobitev_Zaloge(K_Posodobitev_Zaloge newK_Posodobitev_Zaloge) {
+     * @param newK_Posodobitev_Zaloge_SIM */
+   public void setK_Posodobitev_Zaloge(K_Posodobitev_Zaloge_SIM newK_Posodobitev_Zaloge) {
       this.k_Posodobitev_Zaloge = newK_Posodobitev_Zaloge;
    }
    /** @pdGenerated default parent getter */
