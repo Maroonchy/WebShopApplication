@@ -33,6 +33,14 @@ public class Uporabnik {
       this.email = email;
    }
 
+    public String getIme() {
+        return ime;
+    }
+
+    public String getPriimek() {
+        return priimek;
+    }
+   
    /** @pdOid dbafdcba-f774-43fc-9f3d-0239e8d774bb */
    public Narocilo[] VrniNarocila() {
       Narocilo[] tmp = (Narocilo[]) narocila.toArray(new Narocilo[narocila.size()]);

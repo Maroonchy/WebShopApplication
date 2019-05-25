@@ -19,10 +19,9 @@ import javax.imageio.ImageIO;
 public class WebShopApplication {
     static JFrame w;
     static GridBagLayout gbl;
-    static GridBagConstraints gbc;
-    
+    static GridBagConstraints gbc; 
     static JPanel toolbar;
-    //static int cursedi = 0;
+    static ZM_Uporabnik_Prekinitev_Narocila zm = new ZM_Uporabnik_Prekinitev_Narocila();
     
     public static void main(String[] args) {
         initFrame();
@@ -34,6 +33,7 @@ public class WebShopApplication {
     
     static private void initFrame()
     {
+        zm.generirajPodatke();
         w = new JFrame("WebShop Trgovina");
         w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         w.setSize(1000, 500);
@@ -59,7 +59,7 @@ public class WebShopApplication {
         }
         
         JLabel iCIcon = new JLabel(new ImageIcon(icon));
-        iCIcon.setPreferredSize(new Dimension(250, 50));
+        iCIcon.setPreferredSize(new Dimension(220, 50));
         toolbar.add(iCIcon, BorderLayout.WEST);
         
         Image user = null;
@@ -74,8 +74,15 @@ public class WebShopApplication {
         user = user.getScaledInstance(25, 25, 0);
         
         JLabel iCUser = new JLabel(new ImageIcon(user));
-        iCUser.setPreferredSize(new Dimension(70, 50));
-        toolbar.add(iCUser, BorderLayout.EAST);
+        iCUser.setPreferredSize(new Dimension(50, 50));
+        JPanel userInfo = new JPanel();
+        userInfo.setOpaque(false);
+        JLabel username = new JLabel(zm.k_Prekinitev_Narocila.uporabnik.getIme() + " " + zm.k_Prekinitev_Narocila.uporabnik.getPriimek());
+        username.setFont(new Font("Berlin Sans", Font.BOLD, 20));
+        username.setForeground(Color.white);
+        userInfo.add(username, BorderLayout.WEST);
+        userInfo.add(iCUser, BorderLayout.EAST);
+        toolbar.add(userInfo, BorderLayout.EAST);
         
         w.add(toolbar, BorderLayout.NORTH);
     }
@@ -125,16 +132,24 @@ public class WebShopApplication {
     
     static void fillOrders(JComponent container)
     {
-        ZM_Uporabnik_Prekinitev_Narocila zm = new ZM_Uporabnik_Prekinitev_Narocila();
-        zm.generirajPodatke();    
-        String[][] narocila = zm.PrikaziNarocila();
+        String[][] narocila = new String[0][];
+        try
+        {
+            narocila = zm.PrikaziNarocila();
+        }
+        catch(Exception ex)
+        {
+            JLabel warn = new JLabel(zm.niNarocil());
+            warn.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 25));
+            container.add(warn);
+        }
         //String[][] narocila = {{"#1", "20.1.2019", "Neobdelano", "Posta", "Kartica", "345€"}, {"#2", "15.1.2019", "Dostavljeno", "Osebni prevzem", "Gotovina", "212€"}};
-        String[][] narocilaPodrobnostii = {  {"Grafična Kartica GTX 2080", "1", "1000€", "10%", "900€"},
-                                            {"Intel i9 9900k", "1", "560€", "0%", "560€"},
-                                            {"ASUS Prime A1", "1", "200€", "15%", "170€"}};
+        //String[][] narocilaPodrobnostii = {  {"Grafična Kartica GTX 2080", "1", "1000€", "10%", "900€"},
+                                            //{"Intel i9 9900k", "1", "560€", "0%", "560€"},
+                                            //{"ASUS Prime A1", "1", "200€", "15%", "170€"}};
         ArrayList<String[][]> narocilaPodrobnosti = new ArrayList<>();
-        narocilaPodrobnosti.add(narocilaPodrobnostii);
-        narocilaPodrobnosti.add(narocilaPodrobnostii);
+        //narocilaPodrobnosti.add(narocilaPodrobnostii);
+        //narocilaPodrobnosti.add(narocilaPodrobnostii);
 
         int i = 0;
         

@@ -77,14 +77,13 @@ public class ZM_Uporabnik_Prekinitev_Narocila {
    
    /** @param besedilo
     * @pdOid 1d0acfa5-5d24-4e64-ac5f-ff1790c8fd60 */
-   public void PrikaziObvestilo(String besedilo) {
-      // tukaj prikazi popup besedilo v Swing
+   public String PrikaziObvestilo(String besedilo) {
+      return besedilo;
    }
    
    /** @pdOid b4497ab1-22ca-41a5-8ed7-67c122572830 */
-   public boolean niNarocil() {
-      PrikaziObvestilo("Ni obstojecih narocil!");
-      return true;
+   public String niNarocil() {
+      return PrikaziObvestilo("Ni obstojecih narocil!");
    }
 
    /** @pdGenerated default parent getter */
@@ -106,18 +105,18 @@ public class ZM_Uporabnik_Prekinitev_Narocila {
       Naroceni_Artikel nArtikel_4 = new Naroceni_Artikel(290, 0, 1);
       Naroceni_Artikel nArtikel_5 = new Naroceni_Artikel(55, 10, 1);
       // narocilo_3
-      Naroceni_Artikel nArtikel_6 = new Naroceni_Artikel(270, 20, 1);
-      Naroceni_Artikel nArtikel_7 = new Naroceni_Artikel(120, 10, 2);
-      Naroceni_Artikel nArtikel_8 = new Naroceni_Artikel(290, 0, 1);
+      Naroceni_Artikel nArtikel_6 = new Naroceni_Artikel(270, 7, 1);
+      Naroceni_Artikel nArtikel_7 = new Naroceni_Artikel(120, 4, 1);
+      Naroceni_Artikel nArtikel_8 = new Naroceni_Artikel(280, 0, 1);
 
 
 
       Date datum_narocila_1 = parseDate("2019-05-23");
-      Narocilo narocilo_1 = new Narocilo(datum_narocila_1, "V obdelavi", "Posta", "Kartica", 3);
+      Narocilo narocilo_1 = new Narocilo(datum_narocila_1, "v obdelavi", "posta", "kartica", 3);
       Date datum_narocila_2 = parseDate("2019-05-20");
-      Narocilo narocilo_2 = new Narocilo(datum_narocila_2, "Oddano", "Posta", "Gotovina", 6);
+      Narocilo narocilo_2 = new Narocilo(datum_narocila_2, "oddano", "posta", "gotovina", 6);
       Date datum_narocila_3 = parseDate("2019-04-28");
-      Narocilo narocilo_3 = new Narocilo(datum_narocila_3, "Koncano", "Osebni Prevzem", "Gotovina", 4);
+      Narocilo narocilo_3 = new Narocilo(datum_narocila_3, "koncano", "osebni prevzem", "gotovina", 4);
 
       Uporabnik uporabnik = new Uporabnik("Janez", "Novak", "Litijska cesta 49, 1000 Ljubljana", "+386 40 141 652", "janez.novak@gmail.com");
 
@@ -132,38 +131,54 @@ public class ZM_Uporabnik_Prekinitev_Narocila {
       artikel_3.addNaroceni_Artikel(nArtikel_3);
       artikel_4.addNaroceni_Artikel(nArtikel_4);
       artikel_5.addNaroceni_Artikel(nArtikel_5);
+      artikel_2.addNaroceni_Artikel(nArtikel_6);
+      artikel_3.addNaroceni_Artikel(nArtikel_7);
+      artikel_4.addNaroceni_Artikel(nArtikel_8);
 
       nArtikel_1.setArtikel(artikel_1);
       nArtikel_2.setArtikel(artikel_2);
       nArtikel_3.setArtikel(artikel_3);
       nArtikel_4.setArtikel(artikel_4);
       nArtikel_5.setArtikel(artikel_5);
+      nArtikel_6.setArtikel(artikel_2);
+      nArtikel_7.setArtikel(artikel_3);
+      nArtikel_8.setArtikel(artikel_4);
+
 
       nArtikel_1.setNarocilo(narocilo_1);
       nArtikel_2.setNarocilo(narocilo_1);
       nArtikel_3.setNarocilo(narocilo_1);
       nArtikel_4.setNarocilo(narocilo_2);
       nArtikel_5.setNarocilo(narocilo_2);
+      nArtikel_6.setNarocilo(narocilo_3);
+      nArtikel_7.setNarocilo(narocilo_3);
+      nArtikel_8.setNarocilo(narocilo_3);
 
       narocilo_1.addNaroceni_Artikel(nArtikel_1);
       narocilo_1.addNaroceni_Artikel(nArtikel_2);
       narocilo_1.addNaroceni_Artikel(nArtikel_3);
       narocilo_2.addNaroceni_Artikel(nArtikel_4);
       narocilo_2.addNaroceni_Artikel(nArtikel_5);
+      narocilo_3.addNaroceni_Artikel(nArtikel_6);
+      narocilo_3.addNaroceni_Artikel(nArtikel_7);
+      narocilo_3.addNaroceni_Artikel(nArtikel_8);
 
       narocilo_1.setUporabnik(uporabnik);
+      narocilo_2.setUporabnik(uporabnik);
+      narocilo_3.setUporabnik(uporabnik);
 
       uporabnik.addNarocilo(narocilo_1);
       uporabnik.addNarocilo(narocilo_2);
+      uporabnik.addNarocilo(narocilo_3);
 
       uporabnik.setK_Prekinitev_Narocila(k_Prekinitev_Narocila);
       
       k_Prekinitev_Narocila = new K_Prekinitev_Narocila();
       k_Prekinitev_Narocila.setK_Posodobitev_Zaloge(k_posodobitev_zaloge);
-      k_Prekinitev_Narocila.setNarocila(uporabnik.narocila);
+      //k_Prekinitev_Narocila.setNarocila(uporabnik.narocila);
       k_Prekinitev_Narocila.setSV_Prekinitev_Narocila_Bancni_Sistem(sv_prekinitev_narocila_bancni_sistem);
       k_Prekinitev_Narocila.setUporabnik(uporabnik);
-      k_Prekinitev_Narocila.setZM_Uporabnik_Prekinitev_Narocila(this);  
+      k_Prekinitev_Narocila.setZM_Uporabnik_Prekinitev_Narocila(this);
    }
 
    public static Date parseDate(String date) {
