@@ -175,7 +175,7 @@ public class ZM_Uporabnik_Prekinitev_Narocila {
       
       k_Prekinitev_Narocila = new K_Prekinitev_Narocila();
       k_Prekinitev_Narocila.setK_Posodobitev_Zaloge(k_posodobitev_zaloge);
-      //k_Prekinitev_Narocila.setNarocila(uporabnik.narocila);
+      k_Prekinitev_Narocila.setNarocila(uporabnik.narocila);
       k_Prekinitev_Narocila.setSV_Prekinitev_Narocila_Bancni_Sistem(sv_prekinitev_narocila_bancni_sistem);
       k_Prekinitev_Narocila.setUporabnik(uporabnik);
       k_Prekinitev_Narocila.setZM_Uporabnik_Prekinitev_Narocila(this);
