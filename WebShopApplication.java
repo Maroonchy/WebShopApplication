@@ -217,7 +217,7 @@ public class WebShopApplication {
                 {
                     public void actionPerformed(ActionEvent e)
                     {
-                        cancelOrder(status, cancel);
+                        cancelOrder(status, cancel, cursedi.getText());
                     }
                 });
             }
@@ -274,16 +274,19 @@ public class WebShopApplication {
         }
     }
     
-    private static void cancelOrder(JLabel label, JButton cancel)
+    private static void cancelOrder(JLabel label, JButton cancel, String cursedi)
     {
+        UIManager.put("OptionPane.okButtonText", "Preklici");
         UIManager.put("OptionPane.cancelButtonText", "Nazaj");
-        UIManager.put("OptionPane.okButtonText", "Preklic");
-        String reason = JOptionPane.showInputDialog(w,
-                        "Navedite razlog za preklic narocila:", "Preklic Narocila", JOptionPane.INFORMATION_MESSAGE);
         
-        if(!(reason == null))
+        JButton confirm = new JButton("Preklici");
+        JButton back = new JButton("Nazaj");
+        int response = JOptionPane.showConfirmDialog(w, "Ali ste prepricani da zelite preklicati narocilo?", "Preklic Narocila", JOptionPane.OK_CANCEL_OPTION);
+        
+        if(response == 0)
         {
-            label.setText("Status: Preklican(" + reason + ")");
+            zm.PrekiniNarocilo(Integer.parseInt(cursedi));
+            label.setText("Status: Preklican");
             cancel.setVisible(false);
         }
     }

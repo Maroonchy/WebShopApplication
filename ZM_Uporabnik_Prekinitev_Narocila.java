@@ -112,11 +112,11 @@ public class ZM_Uporabnik_Prekinitev_Narocila {
 
 
       Date datum_narocila_1 = parseDate("2019-05-23");
-      Narocilo narocilo_1 = new Narocilo(datum_narocila_1, "v obdelavi", "posta", "kartica", 3);
+      Narocilo narocilo_1 = new Narocilo(datum_narocila_1, "V obdelavi", "Posta", "Kartica", 3);
       Date datum_narocila_2 = parseDate("2019-05-20");
-      Narocilo narocilo_2 = new Narocilo(datum_narocila_2, "oddano", "posta", "gotovina", 6);
+      Narocilo narocilo_2 = new Narocilo(datum_narocila_2, "Oddano", "Posta", "Gotovina", 6);
       Date datum_narocila_3 = parseDate("2019-04-28");
-      Narocilo narocilo_3 = new Narocilo(datum_narocila_3, "koncano", "osebni prevzem", "gotovina", 4);
+      Narocilo narocilo_3 = new Narocilo(datum_narocila_3, "Koncano", "Osebni Prevzem", "Gotovina", 4);
 
       Uporabnik uporabnik = new Uporabnik("Janez", "Novak", "Litijska cesta 49, 1000 Ljubljana", "+386 40 141 652", "janez.novak@gmail.com");
 
